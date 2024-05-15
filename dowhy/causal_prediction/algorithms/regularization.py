@@ -210,7 +210,7 @@ class Regularizer:
                     n_groups = cumprod[-1].item()
                     # factors_np = np.concatenate(([1], cumprod[:-1]))
                     # factors = torch.from_numpy(factors_np)
-                    factors = torch.cat((torch.tensor([1]), cumprod[:-1])).cuda()
+                    factors = torch.cat((torch.tensor([1]), cumprod[:-1])).cpu()
                     group_indices = grouping_data @ factors
 
                     for group_idx in range(n_groups):
